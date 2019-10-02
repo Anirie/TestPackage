@@ -11,13 +11,14 @@ fars_map_state(state.num, year)
 
 \item{year}{A character string or an integer, which determines the year.}
 }
+\value{
+NULL or an error if one of the input value is invalid.
+}
 \description{
 Creates a map for a state and a year to show where the corresponding
 accicdents occured.
 }
 \examples{
-\dontrun{
 fars_map_state(49,2015)
-}
 
 }

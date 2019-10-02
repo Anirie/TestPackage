@@ -19,4 +19,5 @@ A tibble with the number of accidents by month and years, or an error if
 }
 \examples{
 fars_summarize_years(c(2014, 2015))
+
 }

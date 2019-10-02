@@ -48,7 +48,10 @@ fars_read <- function(filename) {
 #' @export
 make_filename <- function(year) {
   year <- as.integer(year)
-  sprintf("./data/accident_%d.csv.bz2", year)
+  system.file("extdata",
+              sprintf("accident_%d.csv.bz2", year),
+              package = "TestPackage",
+              mustWork = TRUE)
 }
 
 #' Read FARS years
@@ -107,11 +110,13 @@ fars_read_years <- function(years) {
 #'
 #' @examples
 #' fars_summarize_years(c(2014, 2015))
+#'
+#' @export
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
     dplyr::group_by(year, MONTH) %>%
-    dplyr::summarize(n = n()) %>%
+    dplyr::summarize(n = dplyr::n()) %>%
     tidyr::spread(year, n)
 }
 
