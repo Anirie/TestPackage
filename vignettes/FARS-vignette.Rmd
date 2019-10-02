@@ -1,0 +1,55 @@
+---
+title: "FARS-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{FARS-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  comment = "#>"
+)
+library(TestPackage)
+library(maps)
+```
+The `fars` package reads and maps Fatal Analysis Reporting System or short FARS data for various years. 
+
+In the packages the data for the years 2013, 2014 and 2015 are included.
+
+```{r}
+list.files(system.file("extdata", package = "TestPackage"))
+```
+
+## Package Functions
+
+This pacakge provides various functions to work with the data files.
+
+1. `make_filename`
+This function returns file name and path to the data files:
+
+```{r}
+yr <- 2015
+make_filename(yr)
+```
+
+2. `fars_read_years`
+This is just a helping function and should not be used on its own.
+
+3. `fars_summarize_years`
+This function summarizes accidents data of a given year by month. 
+
+```{r}
+yr <- 2015
+fars_summarize_years(yr)
+```
+
+4. `fars_map_state`
+This function generates a map plot showing accident locations by the given year and state number.
+
+```{r}
+state_num <- 49 # Utah
+yr <- 2014
+fars_map_state(state_num, yr)
+```
