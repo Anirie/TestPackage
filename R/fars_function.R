@@ -100,7 +100,6 @@ fars_read_years <- function(years) {
 #' @importFrom dplyr group_by_
 #' @importFrom dplyr summarize_
 #' @importFrom tidyr spread_
-#' @importFrom magrittr "%>%"
 #'
 #' @param years List of strings or numbers, which correspond to the years from
 #'   which to extract and summarize data.
