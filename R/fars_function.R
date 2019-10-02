@@ -61,7 +61,6 @@ make_filename <- function(year) {
 #'
 #' @importFrom dplyr mutate_
 #' @importFrom dplyr select_
-#' @importFrom magrittr %>%
 #'
 #' @param years A List of strings or numbers, which correspond to the years from
 #'   which to extract data.
